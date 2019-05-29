@@ -108,6 +108,12 @@ function upgrade_flutter () {
   #  * STAMP_PATH is not a file with nonzero size, or
   #  * Contents of STAMP_PATH is not our local git HEAD revision, or
   #  * pubspec.yaml last modified after pubspec.lock
+  echo ! -f "$SNAPSHOT_PATH"
+  echo ! -s "$STAMP_PATH"
+  echo "$(cat "$STAMP_PATH")" != "$revision"
+  echo "$FLUTTER_TOOLS_DIR/pubspec.yaml" -nt "$FLUTTER_TOOLS_DIR/pubspec.lock"
+
+
   if [[ ! -f "$SNAPSHOT_PATH" || ! -s "$STAMP_PATH" || "$(cat "$STAMP_PATH")" != "$revision" || "$FLUTTER_TOOLS_DIR/pubspec.yaml" -nt "$FLUTTER_TOOLS_DIR/pubspec.lock" ]]; then
     rm -f "$FLUTTER_ROOT/version"
     touch "$FLUTTER_ROOT/bin/cache/.dartignore"
