@@ -2,13 +2,16 @@ package io.flutter.facade;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.annotation.NonNull;
+
 import io.flutter.view.FlutterView;
+
+
 
 /**
  * A {@link Fragment} managing a {@link FlutterView}.
